@@ -15,7 +15,17 @@ function calculateBMI(event) {
   // Calculate BMI
   const bmi = weight / (height * height);
 
+  // Calculate CM Dosage
+  function dosisMC(){
+    if(bmi < 25){
+        return weight * 0.8;
+    }
+    else{
+        return weight;
+    }
+  } 
+
   // Display the result
   const result = document.getElementById('result');
-  result.innerHTML = `<h5>Your BMI is: ${bmi.toFixed(2)}</h5>`;
+  result.innerHTML = `<h5>La dosis de medio de contraste: ${dosisMC().toFixed(2)}</h5>`;
 }
