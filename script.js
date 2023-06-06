@@ -18,14 +18,18 @@ function calculateBMI(event) {
   // Calculate CM Dosage
   function dosisMC(){
     if(bmi < 25){
-        return weight * 0.8;
+        return Math.ceil(weight * 0.8);
     }
     else{
-        return weight;
+        return Math.ceil(weight);
     }
   } 
 
+  function jamesDosisMC(){
+    return Math.ceil((1.10*weight)-128*((weight*weight)/Math.pow(100*height,2)));
+  }
+
   // Display the result
   const result = document.getElementById('result');
-  result.innerHTML = `<h5>La dosis de medio de contraste: ${dosisMC().toFixed(2)}</h5>`;
+  result.innerHTML = `<h5>La dosis de medio de contraste es: ${dosisMC().toFixed(2)} cc </h5>`;
 }
